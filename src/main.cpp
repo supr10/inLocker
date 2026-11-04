@@ -21,7 +21,7 @@
 #define OLED_RESET -1
 #define OLED_ADDR 0x3c
 
-
+//button class that checks for pin update rather than pin state
 class button{
     public:
         button() = default;
@@ -110,9 +110,9 @@ bool timer(){
         display.clearDisplay();
         display.setCursor(0, 0);
         if(--secs>0){
-            display.printf("lock in!\n %d:%d", (int)secs/60, secs%60);
+            display.printf("lock in!\n %02d:%02d", (int)secs/60, secs%60);
         }else{
-            display.printf("overtime!\n %d:%d", -(int)secs/60, -secs%60);
+            display.printf("overtime!\n %02d:%02d", -(int)secs/60, -secs%60);
         }
         
         display.display();
@@ -131,7 +131,7 @@ bool breakTimer(){
         display.clearDisplay();
         display.setCursor(0, 0);
         if(--secs>0){
-            display.printf("break time!\n %d:%d", (int)secs/60, secs%60);
+            display.printf("break time!\n %2d:%2d", (int)secs/60, secs%60);
         }else{
             display.printf("the pause is over!");
             if(secs%2==0){
