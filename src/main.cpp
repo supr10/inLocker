@@ -99,6 +99,10 @@ void loop(){
     }
 }
 
+void choice(){
+    
+}
+
 bool timer(){
     unsigned long now = millis();
     if(now-lastNow>=1000){
@@ -112,6 +116,10 @@ bool timer(){
         }
         
         display.display();
+    }if(swtch.check()){
+        secs+=30;
+        lockInTime+=30;
+        breakTime+=10;
     }
     return accept.check()&&secs<0;
 }
