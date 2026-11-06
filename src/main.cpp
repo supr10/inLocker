@@ -88,6 +88,7 @@ void setup(){
 void loop(){
     if(paused){
         if(breakTimer()==true){
+            noTone(PIN_OUT_BUZZER);
             paused = false;
             secs = lockInTime;
         }
